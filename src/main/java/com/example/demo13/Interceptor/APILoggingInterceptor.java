@@ -10,10 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Component
 public class APILoggingInterceptor implements HandlerInterceptor {
     //prints in the console the requests header User-Agent, before handling them
-    //deve stampare l'header User-Agent delle richieste nella console.
+    //deve stampare l'header User-Agent, chi fa la richiesta nella console
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String userAgent = request.getHeader("User-Agent");
-        System.out.println("User-agent: " + userAgent);
+        System.out.println("User-agent: " + request.getHeader("User-Agent"));
         return true;
     }
 

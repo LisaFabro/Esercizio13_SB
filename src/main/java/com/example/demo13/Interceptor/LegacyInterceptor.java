@@ -18,7 +18,8 @@ public class LegacyInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (request.getRequestURL().toString().contains("/legacy")) {
             response.setStatus(HttpStatus.GONE.value());
-        throw new Exception("This URL is no longer in use");
+//        throw new Exception("This URL is no longer in use");  posso anche throware un messaggio da inviare
+            return false;
         }
         return true;
     }
